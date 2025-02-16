@@ -1,14 +1,15 @@
 package com.fernandobouchet.blog.domain.controllers;
 
 import com.fernandobouchet.blog.domain.dtos.CategoryDto;
+import com.fernandobouchet.blog.domain.dtos.CreateCategoryRequest;
 import com.fernandobouchet.blog.domain.entities.Category;
 import com.fernandobouchet.blog.domain.services.CategoryService;
 import com.fernandobouchet.blog.mappers.CategoryMapper;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +25,17 @@ public class CategoryController {
         List<Category> categories = categoryService.listCategories();
         return ResponseEntity.ok(
                 categories.stream().map(categoryMapper::toDto).toList()
+        );
+    }
+
+    @PostMapping
+    public ResponseEntity<CategoryDto> createCategory(
+            @Valid @RequestBody CreateCategoryRequest createCategoryRequest) {
+        Category category = categoryMapper.toEntity(createCategoryRequest);
+        Category savedCategory = categoryService.createCategory(category);
+        return new ResponseEntity<>(
+                categoryMapper.toDto(savedCategory),
+                HttpStatus.CREATED
         );
     }
 }

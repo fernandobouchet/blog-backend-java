@@ -1,5 +1,6 @@
 package com.fernandobouchet.blog.mappers;
 
+import com.fernandobouchet.blog.domain.dtos.CreateCategoryRequest;
 import com.fernandobouchet.blog.domain.entities.Post;
 import com.fernandobouchet.blog.domain.entities.PostStatus;
 import com.fernandobouchet.blog.domain.dtos.CategoryDto;
@@ -26,4 +27,6 @@ public interface CategoryMapper {
                 .filter(post -> PostStatus.PUBLISHED.equals(post.getStatus()))
                 .count();
     }
+
+    Category toEntity(CreateCategoryRequest createCategoryRequest);
 }
