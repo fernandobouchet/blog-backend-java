@@ -1,4 +1,4 @@
-package com.fernandobouchet.blog.domain.repositories;
+package com.fernandobouchet.blog.repositories;
 
 import com.fernandobouchet.blog.domain.entities.Category;
 import org.springframework.data.jpa.repository.JpaRepository;

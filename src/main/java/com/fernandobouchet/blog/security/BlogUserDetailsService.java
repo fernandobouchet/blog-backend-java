@@ -1,7 +1,7 @@
 package com.fernandobouchet.blog.security;
 
 import com.fernandobouchet.blog.domain.entities.User;
-import com.fernandobouchet.blog.domain.repositories.UserRepository;
+import com.fernandobouchet.blog.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

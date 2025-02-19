@@ -1,8 +1,8 @@
-package com.fernandobouchet.blog.domain.services.impl;
+package com.fernandobouchet.blog.services.impl;
 
 import com.fernandobouchet.blog.domain.entities.Category;
-import com.fernandobouchet.blog.domain.repositories.CategoryRepository;
-import com.fernandobouchet.blog.domain.services.CategoryService;
+import com.fernandobouchet.blog.repositories.CategoryRepository;
+import com.fernandobouchet.blog.services.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

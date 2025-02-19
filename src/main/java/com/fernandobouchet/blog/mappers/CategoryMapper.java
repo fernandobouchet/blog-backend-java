@@ -2,7 +2,7 @@ package com.fernandobouchet.blog.mappers;
 
 import com.fernandobouchet.blog.domain.dtos.CreateCategoryRequest;
 import com.fernandobouchet.blog.domain.entities.Post;
-import com.fernandobouchet.blog.domain.entities.PostStatus;
+import com.fernandobouchet.blog.domain.PostStatus;
 import com.fernandobouchet.blog.domain.dtos.CategoryDto;
 import com.fernandobouchet.blog.domain.entities.Category;
 import org.mapstruct.Mapper;

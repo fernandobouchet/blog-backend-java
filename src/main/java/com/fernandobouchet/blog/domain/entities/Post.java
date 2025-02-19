@@ -1,5 +1,6 @@
 package com.fernandobouchet.blog.domain.entities;
 
+import com.fernandobouchet.blog.domain.PostStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

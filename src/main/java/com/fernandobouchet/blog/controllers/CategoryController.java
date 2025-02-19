@@ -1,9 +1,9 @@
-package com.fernandobouchet.blog.domain.controllers;
+package com.fernandobouchet.blog.controllers;
 
 import com.fernandobouchet.blog.domain.dtos.CategoryDto;
 import com.fernandobouchet.blog.domain.dtos.CreateCategoryRequest;
 import com.fernandobouchet.blog.domain.entities.Category;
-import com.fernandobouchet.blog.domain.services.CategoryService;
+import com.fernandobouchet.blog.services.CategoryService;
 import com.fernandobouchet.blog.mappers.CategoryMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.fernandobouchet.blog.domain.services;
+package com.fernandobouchet.blog.services;
 
 import com.fernandobouchet.blog.domain.entities.Category;
 
