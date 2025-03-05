@@ -1,13 +1,16 @@
 package com.fernandobouchet.blog.controllers;
 
 import com.fernandobouchet.blog.domain.CreatePostRequest;
+import com.fernandobouchet.blog.domain.UpdatePostRequest;
 import com.fernandobouchet.blog.domain.dtos.CreatePostRequestDto;
 import com.fernandobouchet.blog.domain.dtos.PostDto;
+import com.fernandobouchet.blog.domain.dtos.UpdatePostRequestDto;
 import com.fernandobouchet.blog.domain.entities.Post;
 import com.fernandobouchet.blog.domain.entities.User;
 import com.fernandobouchet.blog.mappers.PostMapper;
 import com.fernandobouchet.blog.services.PostService;
 import com.fernandobouchet.blog.services.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,5 +56,17 @@ public class PostController {
         PostDto createPostDto = postMapper.toDto(createdPost);
         return new ResponseEntity<>(createPostDto, HttpStatus.CREATED);
 
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<PostDto> updatePost(
+            @PathVariable UUID id,
+            @Valid @RequestBody UpdatePostRequestDto updatePostRequestDto
+            ) {
+        UpdatePostRequest updatePostRequest = postMapper.toUpdatePostRequest(updatePostRequestDto);
+        Post udpdatedPost = postService.updatePost(id, updatePostRequest);
+        PostDto updatedPostDto = postMapper.toDto(udpdatedPost);
+
+        return ResponseEntity.ok(updatedPostDto);
     }
 }
